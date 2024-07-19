@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.parent {
+    width: 650px;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+    display: grid;
+    -webkit-box-reflect: below 1px liner-gradient(#0000, #fff5);
+    box-shadow:
+        0px 0px 5px #aaa,
+        0 0 5px #aaa,
+        0 0 5px #aaa,
+        0 0 5px #aaa;
+}
+.parent>div{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+    flex-grow: 1;
+    font-weight: 900;
+    padding-top: 8px;
+    border-radius: 10px;
+    background-color: #3477F4;
+    color: #fff;
+    -webkit-box-reflect: below 1px liner-gradient(#0000, #fff5);
+    box-shadow:
+        0px 0px 15px #fff,
+        0 0 2px #fff,
+        0 0 2px #fff,
+        0 0 2px #fff;
+}
+
+
+.parent {
+    animation: animation1 16s infinite steps(500);
+    /* width: 50px; */
+}
+
+@keyframes animation1 {
+   from, to{
+    width: 500px;
+   }
+   50%{
+    width: 70px;
+   }
+}
+
+
+
+
+
+
+
+.div1{
+    grid-template-columns: repeat(5, minmax(10px, 50px));
+}
+
+.div2{
+    grid-template-columns: repeat(auto-fit, minmax(10px, 50px));
+}
+.div3{
+    grid-template-columns: repeat(2, 1fr 2fr);
+}
+.div4{
+    grid-template-columns: 1fr repeat(2, minmax(10px, 50px));
+}
+.p2{
+    height: 255px;
+}
+
+body {
+    background-color: #000;
+    display: grid;
+    height: 100vh;
+    gap: 20px;
+    justify-content: center;
+    align-content: space-evenly;
+    color: #fff;
+}
+
+h1, p{
+    font-family: monospace;
+    text-transform: capitalize;
+}
+h1{
+    font-size: 40px;
+    font-family: gabriola;
+    letter-spacing: 3px;
+    padding-top: 20px;
+}
+
+p{
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+.p1{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+.p1>div{
+    width: 500px;
+}
+.grid{
+    display: grid;
+    gap: 20px;
+}

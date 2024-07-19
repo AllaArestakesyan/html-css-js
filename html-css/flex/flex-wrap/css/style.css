@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.parent {
+    width: 500px;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    -webkit-box-reflect: below 1px liner-gradient(#0000, #fff5);
+    box-shadow:
+        0px 0px 5px #aaa,
+        0 0 5px #aaa,
+        0 0 5px #aaa,
+        0 0 5px #aaa;
+}
+.parent>div{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+    flex-grow: 1;
+    font-weight: 900;
+    padding-top: 8px;
+    border-radius: 10px;
+    background-color: #cc0af3;
+    -webkit-box-reflect: below 1px liner-gradient(#0000, #fff5);
+    box-shadow:
+        0px 0px 15px #fff,
+        0 0 2px #fff,
+        0 0 2px #fff,
+        0 0 2px #fff;
+}
+
+
+.parent {
+    animation: animation1 16s infinite steps(500);
+    /* width: 50px; */
+}
+
+@keyframes animation1 {
+   from, to{
+    width: 500px;
+   }
+   50%{
+    width: 70px;
+   }
+}
+
+
+
+
+
+
+
+.div2{
+    flex-wrap: wrap;
+}
+
+.div3{
+    flex-wrap: wrap-reverse;
+}
+.p2{
+    height: 255px;
+}
+
+body {
+    background-color: #000;
+    display: grid;
+    height: 100vh;
+    gap: 20px;
+    justify-content: center;
+    align-content: space-evenly;
+    color: #fff;
+}
+
+h1, p{
+    font-family: monospace;
+    text-transform: capitalize;
+}
+h1{
+    font-size: 40px;
+    font-family: gabriola;
+    letter-spacing: 3px;
+    padding-top: 20px;
+}
+
+p{
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+.p1{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.p1>div{
+    width: 500px;
+}
+.grid{
+    display: grid;
+    gap: 30px;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            background-color: black;
+            border: 1px solid #d6cb8d;
+        }
+
+        body {
+            display: flex;
+            background-color: #000000;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+            gap: 50px;
+        }
+
+        #form {
+            font-family: sans-serif;
+            font-weight: 600;
+            width: 440px;
+            height: 540px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid;
+            font-size: 14px;
+            padding: 30px;
+            line-height: 2;
+            letter-spacing: 0.5px;
+            color: #d6cb8d;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <div id="form">
+
+    </div>
+</body>
+
+<script>
+
+    const can = document.getElementById("canvas")
+    const ctx = can.getContext("2d")
+
+    console.log(ctx);
+    ctx.strokeStyle = "#ffff00"
+    ctx.lineWidth = 5
+    ctx.clearRect(0, 0, 600, 600)
+    let count = 0
+    setTimeout(()=>{
+
+    let y = setInterval(() => {
+        console.log(count);
+        count++;
+        if (count == 1) {
+            ctx.clearRect(0, 0, 600, 600)
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 2) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 3) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.lineTo(100, 250)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 4) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.lineTo(100, 250)
+            ctx.lineTo(450, 500)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 5) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.lineTo(100, 250)
+            ctx.lineTo(450, 500)
+            ctx.lineTo(300, 100)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 6) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.lineTo(100, 250)
+            ctx.lineTo(450, 500)
+            ctx.lineTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        if (count == 7) {
+            ctx.beginPath()
+            ctx.moveTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.lineTo(500, 250)
+            ctx.lineTo(100, 250)
+            ctx.lineTo(450, 500)
+            ctx.lineTo(300, 100)
+            ctx.lineTo(150, 500)
+            ctx.fillStyle = "#ffd700"
+            ctx.stroke()
+            ctx.fill()
+            ctx.closePath()
+        }
+        if (count == 8) {
+            clearInterval(y)
+        }
+    }, 1950);
+
+    }, 8000)
+    const text = `
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>canvas</span> <span style='color:#fff'>=</span> <span style='color:#77d3d8'>document</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>getElementById</span><span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"canvas"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>ctx</span> <span style='color:#fff'>=</span> <span style='color:#2e99ce'>canvas</span>.getContext<span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"2d"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>strokeStyle <span style='color:#fff'>=</span> <span style='color:#ea815c'>"#ffff00"</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineWidth <span style='color:#fff'>=</span> <span style='color:#93CE89'>5</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>beginPath<span style='color:#ebbf14'>(</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>moveTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>300</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>100</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>150</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>500</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>500</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>250</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>100</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>250</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>450</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>500</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>lineTo<span style='color:#ebbf14'>(</span><span style='color:#93CE89'>300</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>100</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>stroke<span style='color:#ebbf14'>(</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>"#ffd700"</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>fill<span style='color:#ebbf14'>(</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span>closePath<span style='color:#ebbf14'>(</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            `
+
+    function textTypingEffect(element, text, i = 0) {
+        element += text[i]
+        form.innerHTML = element
+        if (i == text.length - 1) {
+            return;
+        }
+        setTimeout(() => textTypingEffect(element, text, i + 1), 0);
+
+    }
+    textTypingEffect('', text)
+</script>
+
+</html>

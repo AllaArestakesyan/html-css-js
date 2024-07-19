@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>About Steve Jobs</title>
+</head>
+
+<body>
+    
+</body>
+
+<!-- sort -->
+<script>
+
+    // const arr = [234, 43, 55, 63, 5, 6, 235, 547];
+
+    //1. - bubble
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let j = 0; j < (arr.length - i - 1); j++) {
+    //         if (arr[j] > arr[j + 1]) {
+    //             let temp = arr[j]
+    //             arr[j] = arr[j + 1]
+    //             arr[j + 1] = temp
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+
+    //2. - selection
+    // for (let i = 0; i < arr.length - 1; i++) {
+    //     let min_idx = i;
+    //     for (let j = i + 1; j < arr.length; j++) {
+    //         if (arr[j] < arr[min_idx]) {
+    //             min_idx = j;
+    //         }
+    //     }
+    //     [arr[min_idx], arr[i]] = [arr[i], arr[min_idx]]
+    // }
+    // console.log(arr);
+
+    //3. - insertion
+    // for (let i = 1; i < arr.length; i++) {
+    //     let key = arr[i];
+    //     let j = i - 1;
+    //     while (j >= 0 && arr[j] > key) {
+    //         arr[j + 1] = arr[j];
+    //         j = j - 1;
+    //     }
+    //     arr[j + 1] = key;
+    // }
+    // console.log(arr);
+
+    //4. - merge
+    // let l = 0
+    // for (let r = arr.length - 1; r >= 0; r--) {
+    //     let m = l + parseInt((r - l) / 2);
+    //     let n1 = m - l + 1;
+    //     let n2 = r - m;
+    //     let L = new Array(n1);
+    //     let R = new Array(n2);
+    //     for (let i = 0; i < n1; i++) {
+    //         L[i] = arr[l + i];
+    //     }
+    //     for (let j = 0; j < n2; j++) {
+    //         R[j] = arr[m + 1 + j];
+    //     }
+    //     let i = 0, j = 0, k = l;
+    //     while (i < n1 && j < n2) {
+    //         if (L[i] <= R[j]) {
+    //             arr[k] = L[i];
+    //             i++;
+    //         }
+    //         else {
+    //             arr[k] = R[j];
+    //             j++;
+    //         }
+    //         k++;
+    //     }
+    //     while (i < n1) {
+    //         arr[k] = L[i];
+    //         i++;
+    //         k++;
+    //     }
+    //     while (j < n2) {
+    //         arr[k] = R[j];
+    //         j++;
+    //         k++;
+    //     }
+    // }
+    // console.log(arr);
+
+    //5. - sort()
+    // arr.sort((a, b)=>a-b)
+    // console.log(arr);
+
+</script>
+
+<!-- search -->
+<script>
+    // let arr = [2, -5, 4, 10, 7, 35];
+
+    //1. - liner search
+    // function linerSearch(arr, x) {
+    //     for (let i = 0; i < arr.length; i++)
+    //         if (arr[i] == x)
+    //             return i;
+    //     return -1;
+    // }
+    // console.log(linerSearch(arr, 10));
+    // console.log(linerSearch(arr, 100));
+
+    //2. - sentinel Search
+    // function sentinelSearch(arr, key) {
+    //     var last = arr[arr.length - 1];
+    //     arr[arr.length - 1] = key;
+    //     var i = 0;
+    //     while (arr[i] != key)
+    //         i++;
+    //     arr[arr.length - 1] = last;
+    //     if ((i < arr.length - 1) || (arr[arr.length - 1] == key))
+    //         return i;
+    //     else
+    //         return (-1);
+    // }
+    // console.log(sentinelSearch(arr, 10));
+    // console.log(sentinelSearch(arr, 100));
+
+    // 3. - binarySearch
+    // function binarySearch(arr, x) {
+    //     arr = arr.toSorted((a, b)=>a-b)
+    //     console.log(arr);
+    //     let l = 0;
+    //     let r = arr.length - 1;
+    //     let mid;
+    //     while (r >= l) {
+    //         mid = l + Math.floor((r - l) / 2);
+    //         if (arr[mid] == x)
+    //             return mid;
+    //         if (arr[mid] > x)
+    //             r = mid - 1;
+    //         else
+    //             l = mid + 1;
+    //     }
+    //     return -1;
+    // }
+    // console.log(binarySearch(arr, 10));
+    // console.log(binarySearch(arr, 100));
+
+
+    // 4. - ternarySearch
+    // function ternarySearch(l, r, key, arr) {
+    //     arr = arr.toSorted((a, b) => a - b)
+    //     if (r >= l) {
+    //         let mid1 = l + parseInt((r - l) / 3, 10);
+    //         let mid2 = r - parseInt((r - l) / 3, 10);
+    //         if (arr[mid1] == key) {
+    //             return mid1;
+    //         }
+    //         if (arr[mid2] == key) {
+    //             return mid2;
+    //         }
+    //         if (key < arr[mid1]) {
+    //             return ternarySearch(l, mid1 - 1, key, arr);
+    //         }
+    //         else if (key > arr[mid2]) {
+    //             return ternarySearch(mid2 + 1, r, key, arr);
+    //         }
+    //         else {
+    //             return ternarySearch(mid1 + 1, mid2 - 1, key, arr);
+    //         }
+    //     }
+    //     return -1;
+    // }
+    // console.log(ternarySearch(0, arr.length - 1, 10, arr));
+    // console.log(ternarySearch(0, arr.length - 1, 100, arr));
+
+
+    // 5. - fibMonaccianSearch
+    // function fibMonaccianSearch(arr, x, n) {
+    //     arr = arr.toSorted((a, b) => a - b)
+    //     let fibMMm2 = 0;
+    //     let fibMMm1 = 1;
+    //     let fibM = fibMMm2 + fibMMm1;
+    //     while (fibM < n) {
+    //         fibMMm2 = fibMMm1;
+    //         fibMMm1 = fibM;
+    //         fibM = fibMMm2 + fibMMm1;
+    //     }
+    //     let offset = -1;
+    //     while (fibM > 1) {
+    //         let i = Math.min(offset + fibMMm2, n - 1);
+    //         if (arr[i] < x) {
+    //             fibM = fibMMm1;
+    //             fibMMm1 = fibMMm2;
+    //             fibMMm2 = fibM - fibMMm1;
+    //             offset = i;
+    //         }
+    //         else if (arr[i] > x) {
+    //             fibM = fibMMm2;
+    //             fibMMm1 = fibMMm1 - fibMMm2;
+    //             fibMMm2 = fibM - fibMMm1;
+    //         }
+    //         else return i;
+    //     }
+    //     if (fibMMm1 && arr[n - 1] == x) {
+    //         return n - 1
+    //     }
+    //     return -1;
+    // }
+    // console.log(fibMonaccianSearch(arr, 10, arr.length));
+    // console.log(fibMonaccianSearch(arr, 100, arr.length));
+</script>
+
+<!-- mek tarr -->
+<script>
+    // const arr = [1, 1, 2, 2, 2, 3, 3]
+
+    // 1.
+    // const y = [];
+    // for(let i=0; i<arr.length; i++){
+    //     if(!y.includes(arr[i])){
+    //         y.push(arr[i])
+    //     }
+    // }
+    // console.log(y);
+
+    // 2.
+    // const y = [];
+    // for(let e of arr){
+    //     if(!y.includes(e)){
+    //         y.push(e)
+    //     }
+    // }
+    // console.log(y);
+
+    // 3.
+    // const y = []
+    // arr.forEach(elm => {
+    //     if (!y.includes(elm)) {
+    //         y.push(elm)
+    //     }
+    // })
+    // console.log(arr);
+
+    // 4.
+    // const y = Array.from(new Set(arr))
+    // console.log(y);
+
+</script>
+
+<!-- find -->
+<script>
+
+    //find index
+    // const arr = ["hello", "hi", "good", "day", "car"]
+    // const str = "day";
+
+    //1.
+    // function find(arr, str){
+    //     for(let i=0; i<arr.length; i++){
+    //         if(arr[i]==str){
+    //             return i;
+    //         }
+    //     }
+    //     return -1
+    // }
+    // console.log(find(arr, str));
+
+    // 2.
+    // function find(arr, str) {
+    //     let index = -1
+    //     arr.forEach((elem, i) => {
+    //         if(elem==str){
+    //             index = i;
+    //         }
+    //     });
+    //     return index
+    // }
+    // console.log(find(arr, str));
+
+    // 3.
+    // console.log(arr.indexOf(str));
+
+    // 4.
+    // console.log(arr.findIndex(elm=>elm==str));
+
+</script>
+
+<!--drakan tver  -->
+<script>
+    // const arr = [5, -5, 0, 1, -4, -9, 4]
+
+    // 1.
+    // const y = [];
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i]>0) {
+    //         y.push(arr[i])
+    //     }
+    // }
+    // console.log(y);
+
+    // 2.
+    // const y = []
+    // arr.forEach(elm => {
+    //     if (elm>0) {
+    //         y.push(elm)
+    //     }
+    // })
+    // console.log(arr);
+
+    // 3.
+    // const y = arr.filter(elm=>elm>0);
+    // console.log(y);
+</script>
+
+<!-- zuyg tiv -->
+<script>
+    // 1.
+    // function isEven(x) {
+    //     if (x % 2 === 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    // console.log(isEven(4));
+
+    // 2.
+    // function isEven(x) {
+    //     if (x % 2 == 0)
+    //         return true;
+    //     return false;
+    // }
+    // console.log(isEven(4));
+
+    // 3.
+    // function isEven(number) {
+    //     return number % 2 === 0 ? true : false;
+    // }
+    // console.log(isEven(4));
+
+    // 4.
+    // function isEven(x){
+    //     return x%2===0
+    // }
+    // console.log(isEven(4));
+
+    // 5.
+    // function isEven(number) {
+    //     return (number & 1) === 0;
+    // }
+    // console.log(isEven(4));
+
+    // 6.
+    // function isEven(number) {
+    //     return Math.floor(number / 2) * 2 === number;
+    // }
+    // console.log(isEven(4));
+
+    // 7.
+    // const isEven = number => number % 2 === 0;
+    // console.log(isEven(4));
+</script>
+
+<!-- sub string -->
+<script>
+    // const str = "Hello, world!";
+    // const startIndex = 4;
+    // const endIndex = 10;
+
+    // 1.
+    // let text = '';
+    // for(let i=startIndex;i<endIndex; i++){
+    //     text+=str[i]
+    // }
+    // console.log(text);
+
+    // 2.
+    // const text =str.substring(startIndex, endIndex);
+    // console.log(text);
+
+    // 3.
+    // const text =str.slice(startIndex, endIndex);
+    // console.log(text);
+
+    // 4.
+    // const text =str.substr(startIndex, endIndex-startIndex);
+    // console.log(text);
+</script>
+
+</html>

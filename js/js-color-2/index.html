@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            background-color: #000000;
+            border: 1px solid #1b8abe;
+        }
+
+        body {
+            display: flex;
+            background-color: #000000;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+            gap: 50px;
+        }
+
+        #form {
+            font-family: sans-serif;
+            font-weight: 600;
+            width: 440px;
+            height: 540px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid #1b8abe;
+            font-size: 14px;
+            padding: 30px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            color: #d6cb8d;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <div id="form">
+
+    </div>
+</body>
+
+<script>
+
+    const can = document.getElementById("canvas")
+    const ctx = can.getContext("2d")
+
+    ctx.fillStyle = "#bb00de";
+    ctx.fillRect(0, 0, 600, 150);
+    ctx.fillStyle = "#6b00de";
+    ctx.fillRect(0, 150, 600, 150);
+    ctx.fillStyle = "#00de8d";
+    ctx.fillRect(0, 300, 600, 150);
+    ctx.fillStyle = "#006dde";
+    ctx.fillRect(0, 450, 600, 150);
+    for (let i = 0; i < 10; i++) {
+        ctx.fillStyle = `rgb(255 255 255 / ${(i +1) / 10})`;
+        for (let j = 0; j < 4; j++) {
+            ctx.fillRect(5 + i * 59, 5 + j * 150, 59, 140);
+        }
+    }
+
+    let i = 0;
+    ctx.beginPath()
+
+    setTimeout(() => {
+        ctx.fillStyle = "#bb00de";
+        ctx.fillRect(0, 0, 600, 150);
+        ctx.fillStyle = "#6b00de";
+        ctx.fillRect(0, 150, 600, 150);
+        ctx.fillStyle = "#00de8d";
+        ctx.fillRect(0, 300, 600, 150);
+        ctx.fillStyle = "#006dde";
+        ctx.fillRect(0, 450, 600, 150);
+    }, 3500);
+    ctx.closePath()
+
+    ctx.beginPath()
+
+    const x = setInterval(() => {
+        i++;
+        let j = 0;
+        ctx.fillStyle = `rgb(255 255 255 / ${i / 10})`;
+        const y = setInterval(() => {
+            j++;
+            ctx.fillRect(5 + (i - 1) * 59, 5 + (j - 1) * 150, 59, 140);
+            if (j >= 4) {
+                clearInterval(y)
+            }
+        }, 710)
+        if (i >= 10) {
+            clearInterval(x)
+        }
+    }, 3550)
+    ctx.closePath()
+
+
+    const text = `
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>canvas</span> <span style='color:#fff'>=</span> <span style='color:#77d3d8'>document</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>getElementById</span><span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"canvas"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>ctx</span> <span style='color:#fff'>=</span> <span style='color:#2e99ce'>canvas</span>.getContext<span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"2d"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>'#bb00de'</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span><span style='color:#ebbf14'>(</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>, </span><span style='color:#93CE89'>600</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>150</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>'#6b00de'</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span><span style='color:#ebbf14'>(</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>150</span><span style='color:#fff'>, </span><span style='color:#93CE89'>600</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>150</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>'#00de8d'</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span><span style='color:#ebbf14'>(</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>300</span><span style='color:#fff'>, </span><span style='color:#93CE89'>600</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>150</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>'#006dde'</span><span style='color:#fff'>;</span><br>
+            <span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span><span style='color:#ebbf14'>(</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>450</span><span style='color:#fff'>, </span><span style='color:#93CE89'>600</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>150</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+
+
+            <span style='color:#485bcf'>let</span> <span style='color:#2e99ce'>i</span> <span style='color:#fff'>=</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>start</span> <span style='color:#fff'>=</span> setInterval<span style='color:#ebbf14'>(<span style='color:#B15696'>()</span><span style='color:#485bcf'>=></span><span style='color:#B15696'>{</span></span>
+                <br>
+                &nbsp;&nbsp;<span style='color:#485bcf'>let</span> <span style='color:#2e99ce'>j</span> <span style='color:#fff'>=</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>;</span><br>
+                &nbsp;&nbsp;<span style='color:#2e99ce'>i</span><span style='color:#fff'>++;</span><br>
+                &nbsp;&nbsp;<span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>${"`"}rgb(255 255 255 / <span style='color:#2e99ce'>${"${"}i</span> <span style='color:#fff'>/ </span> <span style='color:#93CE89'>10</span><span style='color:#2e99ce'>}</span>)${"`"}</span><span style='color:#fff'>;</span><br>
+
+                
+                &nbsp;&nbsp;<span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>step</span> <span style='color:#fff'>=</span> setInterval<span style='color:#ebbf14'>(<span style='color:#B15696'>()</span><span style='color:#485bcf'>=></span><span style='color:#B15696'>{</span></span>
+            <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2e99ce'>j</span><span style='color:#fff'>++;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span>
+                    <span style='color:#ebbf14'>(</span><span style='color:#93CE89'>5</span> <span style='color:#fff'>+</span>
+                    <span style='color:#93CE89'><span style='color:#2e99ce'>(<span style='color:#2e99ce'>i</span> <span style='color:#fff'>- </span> <span style='color:#93CE89'>1</span> )</span> <span style='color:#fff'>* </span>59</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>5</span> <span style='color:#fff'>+</span>
+                    <span style='color:#93CE89'><span style='color:#2e99ce'>(<span style='color:#2e99ce'>j</span> <span style='color:#fff'>- </span> <span style='color:#93CE89'>1</span> )</span> <span style='color:#fff'>* </span>150</span><span style='color:#fff'>,</span>
+                    <span style='color:#93CE89'>59</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>140</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#B15696'> if (<span style='color:#2e99ce'>j</span><span style='color:#fff'> ></span> <span style='color:#93CE89'> 4</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#d6cb8d'>clearInterval</span><span style='color:#2e99ce'>(step)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; }</span>
+            <br>
+            &nbsp;&nbsp;<span style='color:#B15696'>}</span><span style='color:#fff'>,</span><span style='color:#93CE89'> 500</span>)</span><span style='color:#fff'>;</span><br>            
+            &nbsp;&nbsp;<span style='color:#B15696'> if (<span style='color:#2e99ce'>i</span><span style='color:#fff'> ></span> <span style='color:#93CE89'> 10</span>) {<br>
+                &nbsp;&nbsp; &nbsp;&nbsp;<span style='color:#d6cb8d'>clearInterval</span><span style='color:#2e99ce'>(start)</span><br>
+                &nbsp;&nbsp; }</span>
+            <br>
+            <span style='color:#B15696'>}</span><span style='color:#fff'>,</span><span style='color:#93CE89'> 3500</span>)</span><span style='color:#fff'>;</span><br>            
+            `
+    // form.innerHTML = text
+    function textTypingEffect(element, text, i = 0) {
+        element += text[i]
+        form.innerHTML = element
+        if (i == text.length - 1) {
+            return;
+        }
+        setTimeout(() => textTypingEffect(element, text, i + 1), 0);
+
+    }
+    textTypingEffect('', text)
+</script>
+
+</html>

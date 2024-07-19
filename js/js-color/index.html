@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            background-color: #000000;
+            border: 1px solid #1b8abe;
+        }
+
+        body {
+            display: flex;
+            background-color: #000000;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+            gap: 50px;
+        }
+
+        #form {
+            font-family: sans-serif;
+            font-weight: 600;
+            width: 440px;
+            height: 540px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid #1b8abe;
+            font-size: 14px;
+            padding: 30px;
+            line-height: 2;
+            letter-spacing: 0.5px;
+            color: #d6cb8d;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <div id="form">
+
+    </div>
+</body>
+
+<script>
+
+    const can = document.getElementById("canvas")
+    const ctx = can.getContext("2d")
+
+    function drawStar(x, y, radius, points, innerRadius, color) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(x, y);
+        ctx.moveTo(0, 0 - radius);
+        for (var i = 0; i < points; i++) {
+            ctx.rotate(Math.PI / points);
+            ctx.lineTo(0, 0 - innerRadius);
+            ctx.rotate(Math.PI / points);
+            ctx.lineTo(0, 0 - radius);
+        }
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.restore();
+    }
+
+    // Call the drawStar function with desired parameters
+    // drawStar(200, 200, 100, 5, 50, '#ff5');
+    // setInterval(() => {
+    //     ctx.clearRect(0, 0, 600, 600)
+    //     drawStar(200, 200, 100, 15, 15, '#ff5');
+    //     setTimeout(() => {
+    //         drawStar(200, 200, 150, 15, 10, '#ff5');
+    //         setTimeout(() => {
+    //             drawStar(200, 200, 100, 5, 15, 'gold');
+    //             setTimeout(() => {
+    //                 drawStar(200, 200, 100, 15, 10, 'gold');
+    //                 setTimeout(() => {
+    //                     drawStar(200, 200, 100, 50, 10, '#ff0');
+    //                     setTimeout(() => {
+    //                         drawStar(200, 200, 100, 50, 10, '#fff');
+
+    //                     }, 100);
+    //                 }, 100);
+    //             },100);
+    //         }, 100);
+    //     }, 100);
+    // }, 600)
+
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 6; j++) {
+            ctx.fillStyle = `rgb(${Math.floor(255 - 42.5 * i)} 0 ${Math.floor(
+                255 - 42.5 * j,
+            )} )`;
+            ctx.fillRect(j * 100, i * 100, 100, 100);
+        }
+    }
+
+    setTimeout(() => {
+        ctx.clearRect(0, 0, 600, 600)
+    }, 4000);
+    ctx.beginPath()
+    let i = 0;
+    const x = setInterval(() => {
+        let j = 0;
+        i++;
+        const y = setInterval(() => {
+            j++
+            ctx.fillStyle = `rgb( ${Math.floor(255 - 42.5 * i)} 0 ${Math.floor(255 - 45 * j,)} )`;
+            ctx.fillRect((j - 1) * 100, (i - 1) * 100, 100, 100);
+            if (j > 6) {
+                clearInterval(y)
+            }
+        }, 600)
+        if (i > 6) {
+            clearInterval(y)
+        }
+    }, 4200)
+    ctx.closePath()
+
+    // console.log(ctx);
+    // ctx.strokeStyle = "#1b8abe"
+    // ctx.lineWidth = 5
+    // ctx.clearRect(0, 0, 600, 600)
+    // let count = 0
+    // ctx.moveTo(500, 100)
+    // ctx.lineTo(70, 320)
+    // ctx.lineTo(205, 380)
+    // ctx.lineTo(405, 220)
+    // ctx.lineTo(270, 425)
+    // ctx.lineTo(380, 550)
+    // ctx.lineTo(500, 100)
+    // ctx.lineTo(70, 320)
+    // ctx.fillStyle = "#fff"
+    // ctx.stroke()
+    // ctx.fill()
+    // setTimeout(()=>{
+
+    // let y = setInterval(() => {
+    //     console.log(count);
+    //     count++;
+    //     if (count == 1) {
+    //         ctx.clearRect(0, 0, 600, 600)
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 2) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 3) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.lineTo(100, 250)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 4) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.lineTo(100, 250)
+    //         ctx.lineTo(450, 500)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 5) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.lineTo(100, 250)
+    //         ctx.lineTo(450, 500)
+    //         ctx.lineTo(300, 100)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 6) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.lineTo(100, 250)
+    //         ctx.lineTo(450, 500)
+    //         ctx.lineTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 7) {
+    //         ctx.beginPath()
+    //         ctx.moveTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.lineTo(500, 250)
+    //         ctx.lineTo(100, 250)
+    //         ctx.lineTo(450, 500)
+    //         ctx.lineTo(300, 100)
+    //         ctx.lineTo(150, 500)
+    //         ctx.fillStyle = "#ffd700"
+    //         ctx.stroke()
+    //         ctx.fill()
+    //         ctx.closePath()
+    //     }
+    //     if (count == 8) {
+    //         clearInterval(y)
+    //     }
+    // }, 1950);
+
+    // }, 8000)
+
+
+    const text = `
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>canvas</span> <span style='color:#fff'>=</span> <span style='color:#77d3d8'>document</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>getElementById</span><span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"canvas"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>ctx</span> <span style='color:#fff'>=</span> <span style='color:#2e99ce'>canvas</span>.getContext<span style='color:#ebbf14'>(</span><span style='color:#ea815c'>"2d"</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>let</span> <span style='color:#2e99ce'>i</span> <span style='color:#fff'>=</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>;</span><br>
+            <span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>start</span> <span style='color:#fff'>=</span> setInterval<span style='color:#ebbf14'>(<span style='color:#B15696'>()</span><span style='color:#485bcf'>=></span><span style='color:#B15696'>{</span></span>
+                <br>
+                &nbsp;&nbsp;<span style='color:#485bcf'>let</span> <span style='color:#2e99ce'>j</span> <span style='color:#fff'>=</span> <span style='color:#93CE89'>0</span><span style='color:#fff'>;</span><br>
+                &nbsp;&nbsp;<span style='color:#2e99ce'>i</span><span style='color:#fff'>++;</span><br>
+                &nbsp;&nbsp;<span style='color:#485bcf'>const</span> <span style='color:#2e99ce'>step</span> <span style='color:#fff'>=</span> setInterval<span style='color:#ebbf14'>(<span style='color:#B15696'>()</span><span style='color:#485bcf'>=></span><span style='color:#B15696'>{</span></span>
+            <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2e99ce'>j</span><span style='color:#fff'>++;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#77d3d8'>fillStyle</span> <span style='color:#fff'>=</span> <span style='color:#ea815c'>${'`'}rgb(</span> <span style='color:#485bcf'>
+                    ${'${<span style="color:#77d3d8">Math</span><span style="color:#fff">.</span><span style="color:#d6cb8d">floor</span> <span style="color:#B15696">(</span><span style="color:#93CE89">255 <span style="color:#fff">-</span> 42.5 <span style="color:#fff">*</span> <span style="color:#2e99ce">i</span></span>   <span style="color:#B15696">)</span>}'}
+                    </span> <span style='color:#ea815c'>0</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#485bcf'>${'${<span style="color:#77d3d8">Math</span><span style="color:#fff">.</span><span style="color:#d6cb8d">floor</span> <span style="color:#B15696">(</span><span style="color:#93CE89">255 <span style="color:#fff">-</span> 42.5 <span style="color:#fff">*</span> <span style="color:#2e99ce">j</span></span>   <span style="color:#B15696">)</span>}'}
+                    <span style='color:#fff'> <span style='color:#ea815c'>)${'`'}</span><span style='color:#fff'>;</span><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2e99ce'>ctx</span><span style='color:#fff'>.</span><span style='color:#d6cb8d'>fillRect</span>
+                    <span style='color:#ebbf14'>(</span>
+                    
+                    <span style='color:#93CE89'><span style='color:#2e99ce'>(<span style='color:#2e99ce'>j</span> <span style='color:#fff'>- </span> <span style='color:#93CE89'>1</span> )</span> <span style='color:#fff'>* </span>100</span><span style='color:#fff'>,</span>
+                    <span style='color:#93CE89'><span style='color:#2e99ce'>(<span style='color:#2e99ce'>i</span> <span style='color:#fff'>- </span> <span style='color:#93CE89'>1</span> )</span> <span style='color:#fff'>* </span>100</span><span style='color:#fff'>,</span>
+                    <span style='color:#93CE89'>100</span><span style='color:#fff'>,</span> <span style='color:#93CE89'>100</span><span style='color:#ebbf14'>)</span><span style='color:#fff'>;</span><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#B15696'> if (<span style='color:#2e99ce'>j</span><span style='color:#fff'> ></span> <span style='color:#93CE89'> 6</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#d6cb8d'>clearInterval</span><span style='color:#2e99ce'>(step)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; }</span>
+            <br>
+            &nbsp;&nbsp;<span style='color:#B15696'>}</span><span style='color:#fff'>,</span><span style='color:#93CE89'> 500</span>)</span><span style='color:#fff'>;</span><br>            
+            &nbsp;&nbsp;<span style='color:#B15696'> if (<span style='color:#2e99ce'>i</span><span style='color:#fff'> ></span> <span style='color:#93CE89'> 6</span>) {<br>
+                &nbsp;&nbsp; &nbsp;&nbsp;<span style='color:#d6cb8d'>clearInterval</span><span style='color:#2e99ce'>(start)</span><br>
+                &nbsp;&nbsp; }</span>
+            <br>
+            <span style='color:#B15696'>}</span><span style='color:#fff'>,</span><span style='color:#93CE89'> 3500</span>)</span><span style='color:#fff'>;</span><br>            
+            `
+    function textTypingEffect(element, text, i = 0) {
+        element += text[i]
+        form.innerHTML = element
+        if (i == text.length - 1) {
+            return;
+        }
+        setTimeout(() => textTypingEffect(element, text, i + 1), 0);
+
+    }
+    textTypingEffect('', text)
+</script>
+
+</html>
